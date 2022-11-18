@@ -158,7 +158,7 @@ export default function Navigation() {
             <span className="bar3"></span>
           </div>
           <ul className="nav-items clear">
-            <li><a href="/#intro" className="nav-link page-scroll">Intro</a></li>
+            <li><a href="#intro" className="nav-link page-scroll">Intro</a></li>
             {/* <li><a href="/#about" className="nav-link page-scroll">About</a></li> */}
             {/* <li><Link href="/waiting" passHref className="nav-link page-link">Waiting for Release</Link></li> */}
             <li><a className="nav-link drop"><FontAwesomeIcon icon={faSortDown} />Pages</a>
@@ -175,9 +175,9 @@ export default function Navigation() {
           <ul className="slide-menu">
             <li className="slide-item">
               <div className="slide-go-arrow">
-                <a href="/#intro" className="slide-link page-scroll"><FontAwesomeIcon icon={faAngleRight} /></a>
+                <a href="#intro" className="slide-link page-scroll"><FontAwesomeIcon icon={faAngleRight} /></a>
               </div>
-              <a href="/#intro" className="slide-link page-scroll">Intro</a>
+              <a href="#intro" className="slide-link page-scroll">Intro</a>
             </li>
             {/* <li className="slide-item">
               <div className="slide-go-arrow">
