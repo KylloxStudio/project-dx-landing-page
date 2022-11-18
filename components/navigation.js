@@ -150,7 +150,7 @@ export default function Navigation() {
   return (
     <header id="header" className="fixed-top">
       <div className="hoc clear">
-        <h1 className="logo"><a href="/">Project DX</a></h1>
+        <h1 className="logo"><Link href="/">Project DX</Link></h1>
         <nav id="mainnav">
           <div className="ham">
             <span className="bar1"></span>
