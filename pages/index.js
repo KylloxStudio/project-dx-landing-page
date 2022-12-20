@@ -176,10 +176,10 @@ export default function Index() {
       <footer>
         <div className="footer-content">
           <p className="copyright">
-            &copy; <span className="year">2022</span> <a href="https://www.nexongames.co.kr" target="_blank">Nexon Games.</a> & <a href="https://www.nexon.com" target="_blank">Nexon Corp.</a>
+            &copy; <span className="year">2022</span> <a href="https://www.nexongames.co.kr" target="_blank" rel="noreferrer noopener">Nexon Games.</a> & <a href="https://www.nexon.com" target="_blank" rel="noreferrer noopener">Nexon Corp.</a>
           </p>
           <p className="madeby">
-            &copy; Made by <a href="https://kyllox.tech" target="_blank">Kyllox.</a>
+            &copy; Made by <a href="https://kyllox.tech" target="_blank" rel="noreferrer noopener">Kyllox.</a>
           </p>
         </div>
       </footer>
