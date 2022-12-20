@@ -187,3 +187,39 @@ export function getAbsPosY(el) {
 export const onscroll = (el, listener) => {
   el.addEventListener('scroll', listener);
 };
+
+
+export function resizeYoutube() {
+  let youtubes = select('.youtube', true);
+  for (let i = 0; i < youtubes.length; i++) {
+    let youtube = youtubes[i];
+    let iframe = youtube.querySelector('iframe');
+    if (iframe) {
+      let responsiveWidth;
+      if (window.innerWidth < 578) {
+        responsiveWidth = document.documentElement.clientWidth;
+      } else {
+        responsiveWidth = window.innerWidth * (80 / 100);
+      }
+      let responsiveHeight = responsiveWidth * 0.5625;
+      iframe.setAttribute('width', responsiveWidth);
+      iframe.setAttribute('height', responsiveHeight);
+    }
+  }
+}
+
+export function onStateChangeYoutube(event) {
+  if (event.data == YT.PlayerState.ENDED) {
+    event.target.clearVideo();
+    event.target.stopVideo(0);
+  }
+}
+
+export function inArray(value, array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] == value) {
+      return true;
+    }
+  }
+  return false;
+}

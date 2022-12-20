@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useEffect } from "react";
 import { useRouter } from 'next/router';
-import { select, show, toggle, toggleClass, slideDown, slideUp, slideToggle, scrollToY, getAbsPosY, onscroll } from './functions';
+import { select, show, hide, toggle, toggleClass, slideDown, slideUp, slideToggle, scrollToY, getAbsPosY, onscroll } from './functions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSortDown, faAngleRight, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 export let MovePageAndScroll = {
@@ -150,7 +150,7 @@ export default function Navigation() {
   return (
     <header id="header" className="fixed-top">
       <div className="hoc clear">
-        <h1 className="logo"><Link href="/">Project DX</Link></h1>
+        <h1 className="logo"><a href="/">Project DX</a></h1>
         <nav id="mainnav">
           <div className="ham">
             <span className="bar1"></span>
@@ -159,8 +159,7 @@ export default function Navigation() {
           </div>
           <ul className="nav-items clear">
             <li><a href="#intro" className="nav-link page-scroll">Intro</a></li>
-            {/* <li><a href="/#about" className="nav-link page-scroll">About</a></li> */}
-            {/* <li><Link href="/waiting" passHref className="nav-link page-link">Waiting for Release</Link></li> */}
+            <li><Link href="/waiting" passHref className="nav-link page-link">Waiting for Release</Link></li>
             <li><a className="nav-link drop"><FontAwesomeIcon icon={faSortDown} />Pages</a>
               <ul className="drop-menu">
                 <li><a href="https://nexon.com">Nexon</a></li>
@@ -179,18 +178,12 @@ export default function Navigation() {
               </div>
               <a href="#intro" className="slide-link page-scroll">Intro</a>
             </li>
-            {/* <li className="slide-item">
-              <div className="slide-go-arrow">
-                <a href="/#about" className="slide-link page-scroll"><FontAwesomeIcon icon={faAngleRight} /></a>
-              </div>
-              <a href="/#about" className="slide-link page-scroll">About</a>
-            </li> */}
-            {/* <li className="slide-item">
+            <li className="slide-item">
               <div className="slide-go-arrow">
                 <Link href="/waiting" passHref className="slide-link page-link"><FontAwesomeIcon icon={faAngleRight} /></Link>
               </div>
               <Link href="/waiting" passHref className="slide-link page-link">Waiting for Release</Link>
-            </li> */}
+            </li>
             <li className="slide-item">
               <div className="slide-drop-arrow">
                 <a id="pages-down"><FontAwesomeIcon icon={faAngleDown} /></a>
@@ -200,8 +193,8 @@ export default function Navigation() {
                 <a id="slide-pages-btn" className="slide-link">Pages</a>
               </div>
               <ul id="slide-menu-pages" className="slide-menu-sub">
-                <li className="slide-item-sub"><a className="slide-link-sub" href="https://nexon.com">└ Nexon</a></li>
-                <li className="slide-item-sub"><a className="slide-link-sub" href="https://what.kyllox.tech">└ What! Studio</a></li>
+                <li className="slide-item-sub"><a className="slide-link-sub" href="https://www.nexon.com">└ Nexon</a></li>
+                <li className="slide-item-sub"><a className="slide-link-sub" href="https://www.nexongames.co.kr">└ Nexon Games</a></li>
                 <li className="slide-item-sub"><a className="slide-link-sub" href="https://gall.dcinside.com/mgallery/board/lists/?id=leeunseok">└ Community</a></li>
               </ul>
             </li>
