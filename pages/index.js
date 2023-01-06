@@ -54,19 +54,15 @@ export default function Index() {
       if (select("#intro") && select("#intro-overlay")) {
         await wait(2500);
         if (select("#intro") && select("#intro-overlay")) {
+          select("#intro").style.removeProperty('background');
           select("#intro-overlay").style.removeProperty('background');
           select("#intro-fade").style.opacity = 0;
           select("#intro-fade").style.zIndex = 1;
           select("footer").style.zIndex = 0;
-          select("#intro-background").style.zIndex = 0;
-          select("#intro-background video").play();
         }
       }
       if (select("#intro-logo") && select("#open-viewport")) {
         await wait(500);
-        select("#intro-fade").remove();
-        select("#intro").style.removeProperty('background');
-
         if (select("#intro-logo") && select("#open-viewport")) {
           show(select("#intro-logo"));
           show(select("#open-viewport"), true);
@@ -75,6 +71,7 @@ export default function Index() {
       if (select("#intro-logo")) {
         await wait(500);
         if (select("#intro-logo")) {
+          select("#intro-fade").remove();
           fadeIn(select("#intro-logo"), false);
         }
       }
@@ -84,6 +81,23 @@ export default function Index() {
           fadeIn(select("#open-viewport"));
         }
       }
+      if (select("#intro-background")) {
+        await wait(7500);
+        if (select("#intro-background")) {
+          select("#intro-background").style.zIndex = 0;
+          select("#intro-background").style.opacity = 1;
+          select("#intro-background video").play();
+          setInterval(() => {
+            if (select("#intro-background").style.opacity != 0) {
+              select("#intro-background").style.opacity = 0;
+              select("#intro-background video").pause();
+            } else {
+              select("#intro-background").style.opacity = 1;
+              select("#intro-background video").play();
+            }
+          }, 10000);
+        }
+      }
     };
 
     select("#open-viewport").addEventListener('click', () => {
@@ -91,11 +105,6 @@ export default function Index() {
         openViewport();
         resizeYoutube();
       }
-    });
-
-    let introVideo = select("#intro-background video");
-    introVideo.addEventListener('ended', () => {
-      introVideo.style.opacity = '0';
     });
 
     window.addEventListener('resize', (event) => {
@@ -150,7 +159,7 @@ export default function Index() {
         <div id="intro-fade"></div>
         <div id="intro-overlay" style={{ background: '#000000' }}></div>
         <div id="intro-background">
-          <video muted>
+          <video muted loop>
             <source src="/images/background.mp4" type="video/mp4" />
             <strong>Your browser does not support the video tag.</strong>
           </video>
