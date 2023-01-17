@@ -61,6 +61,14 @@ export default function Index() {
           select("footer").style.zIndex = 0;
         }
       }
+      if (window.innerWidth < 578) {
+        select("#intro").style.background = '#000000';
+        if (select("#intro-background")) {
+          select("#intro-background").style.zIndex = 0;
+          select("#intro-background").style.opacity = 1;
+          select("#intro-background video").play();
+        }
+      }
       if (select("#intro-logo") && select("#open-viewport")) {
         await wait(500);
         if (select("#intro-logo") && select("#open-viewport")) {
@@ -81,23 +89,23 @@ export default function Index() {
           fadeIn(select("#open-viewport"));
         }
       }
-      if (select("#intro-background")) {
-        await wait(7500);
-        if (select("#intro-background")) {
-          select("#intro-background").style.zIndex = 0;
-          select("#intro-background").style.opacity = 1;
-          select("#intro-background video").play();
-          setInterval(() => {
-            if (select("#intro-background").style.opacity != 0) {
-              select("#intro-background").style.opacity = 0;
-              select("#intro-background video").pause();
-            } else {
-              select("#intro-background").style.opacity = 1;
-              select("#intro-background video").play();
-            }
-          }, 10000);
-        }
-      }
+      // if (select("#intro-background")) {
+      //   await wait(7500);
+      //   if (select("#intro-background")) {
+      //     select("#intro-background").style.zIndex = 0;
+      //     select("#intro-background").style.opacity = 1;
+      //     select("#intro-background video").play();
+      //     setInterval(() => {
+      //       if (select("#intro-background").style.opacity != 0) {
+      //         select("#intro-background").style.opacity = 0;
+      //         select("#intro-background video").pause();
+      //       } else {
+      //         select("#intro-background").style.opacity = 1;
+      //         select("#intro-background video").play();
+      //       }
+      //     }, 10000);
+      //   }
+      // }
     };
 
     select("#open-viewport").addEventListener('click', () => {
@@ -111,6 +119,21 @@ export default function Index() {
       if (event.target.innerWidth < 578) {
         if (select("#viewport").classList.contains("active")) {
           closeViewport();
+        }
+        if (!select("#intro-fade")) {
+          if (select("#intro-background")) {
+            select("#intro-background").style.zIndex = 0;
+            select("#intro-background").style.opacity = 1;
+            select("#intro-background video").play();
+          }
+        }
+      } else {
+        if (!select("#intro-fade")) {
+          if (select("#intro")) {
+            select("#intro-background").style.opacity = 0;
+            select("#intro-background video").pause();
+            select("#intro").style.removeProperty('background');
+          }
         }
       }
       resizeYoutube();

@@ -9,7 +9,7 @@ export const openViewport = async () => {
     select("#open-viewport").style.pointerEvents = 'none';
     viewport.style.display = "table";
     await wait(100);
-    select("#intro-background video").pause();
+    // select("#intro-background video").pause();
     let youtubes = select('#viewport .youtube', true);
     for (let i = 0; i < youtubes.length; i++) {
       if (YoutubePlayers[i].getPlayerState() == YT.PlayerState.PAUSED) {
@@ -39,7 +39,7 @@ export const closeViewport = async () => {
     viewport.classList.remove("active");
     select('.' + styles.contents, true)[0].style.opacity = '0';
     select("#open-viewport").style.removeProperty("pointer-events");
-    select("#intro-background video").play();
+    // select("#intro-background video").play();
   }
 };
 
